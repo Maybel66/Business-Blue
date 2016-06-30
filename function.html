@@ -1,0 +1,76 @@
+<html>
+<head></head>
+<body>
+<img id="myimg" src="images/Proteins/Tubulin.jpg" width ="200" height= "180">
+  <script type="text/javascript">
+  cars = [
+    {
+      name: "Albumin",
+      location: 380,
+      distance: 20,
+      src:"images/Proteins/Albumin.jpg"
+
+
+
+    },
+    {
+      name: "Tubulin",
+      location: 180,
+        distance: 9,
+        src:"images/Proteins/Tubulin.jpg"
+    },
+    {
+      name: "Myosin",
+      location: 40,
+        distance: 5,
+        src:"images/Proteins/Myosin.jpg"
+    },
+    {
+      name: "Collagen",
+      location: 200,
+        distance: 12,
+        src:"images/Proteins/Collagen.jpg"
+    }
+  ]
+  cars.sort (function(a, b)
+{
+  return a.distance -b.distance;
+})
+for(var i in cars){
+  var oImg = document.createElement("IMG");
+  oImg.setAttribute('src', cars[i].src);
+  oImg.setAttribute('alt', 'na');
+  oImg.setAttribute('height', '100px');
+  oImg.setAttribute('width', '100px');
+  oImg.setAttribute('index', i);
+
+  oImg.addEventListener('click', function()
+{
+  
+      console.log(i);
+
+}
+
+cars= recalculate_distance(cars, i);
+  cars.sort (function(a, b)
+{
+  return a.distance -b.distance;
+})
+})
+  document.body.appendChild(oImg);
+  console.log(cars[i].src);
+}
+function recalculate_distance(cars, anchorIndex) {
+  for (var i in cars)
+  {
+    cars[i].distance = Math.abs (cars[i].location- cars[anchorIndex].location)
+    console.log(cars[i].distance);
+
+  }
+  return cars                // The function returns the product of p1 and p2
+}
+
+
+  </script>
+</body>
+</html>
